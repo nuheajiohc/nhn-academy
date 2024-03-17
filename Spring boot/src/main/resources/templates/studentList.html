@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{student-list}"></title>
+</head>
+<body>
+<h1 th:text="#{student-list}"></h1>
+<table>
+    <thead>
+    <th th:text="#{id}"></th>
+    <th th:text="#{name}"></th>
+    <th th:text="#{email}"></th>
+    <th th:text="#{score}"></th>
+    <th th:text="#{comment}"></th>
+    <th th:text="#{view}"></th>
+    </thead>
+    <tbody>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.score}"></td>
+            <td th:text="${student.comment}"></td>
+            <td><a th:href="@{'/student/' + ${student.id}}" th:text="#{view}"></a></td>
+        </tr>
+    </tbody>
+</table>
+<a href="/student/register" th:text="#{register}"></a>
+<a href="/" th:text="#{index}"></a>
+</body>
+</html>

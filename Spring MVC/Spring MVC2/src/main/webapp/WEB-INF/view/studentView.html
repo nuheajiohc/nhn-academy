@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{student-info-view}"></title>
+</head>
+<body>
+<h1 th:text="#{student-info-view}"></h1>
+<span th:text="#{name}"></span> : <span th:text="${student.name}"></span><br/>
+<span th:text="#{email}"></span> : <span th:text="${student.email}"></span><br/>
+<th:block th:if="${hideInfo != true}">
+    <span th:text="#{score}"></span> : <span th:text="${student.score}"></span><br/>
+    <span th:text="#{comment}"></span> : <span th:text="${student.comment}"></span><br/>
+</th:block>
+<br/>
+<a th:href="@{'/student/'+${student.id}+'/modify'}" th:text="#{modify}" ></a><br/>
+<a th:href="@{/student/studentlist}" th:text="#{student-list}"></a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="#{modify}"></title>
+</head>
+<body>
+<h1 th:text="#{modify}"></h1>
+<form method="post" th:action="@{'/student/' + ${student.id} + '/modify'}">
+  <label th:text="#{name}" for="name"></label> : <input type="text" id="name" name="name" th:value="${student.name}"/><br />
+  <label th:text="#{email}" for="email"></label> : <input type="text" id="email" name="email" th:value="${student.email}" /><br />
+  <label th:text="#{score}" for="score"></label> : <input type="text" id="score" name="score" th:value="${student.score}" /><br />
+  <label th:text="#{comment}" for="comment"></label> : <textarea id="comment" name="comment" rows="10" cols="80" th:text="${student.comment}"></textarea><br />
+  <br />
+  <input type="submit" th:value="#{submit}" />
+</form>
+</body>
+</html>

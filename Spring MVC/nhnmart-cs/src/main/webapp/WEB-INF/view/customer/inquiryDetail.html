@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>상세문의</title>
+</head>
+<body>
+<h1>상세 문의</h1>
+<span>제목 : </span> <span th:text="${inquiry.title}"></span> <br/>
+<span>작성시간 : </span> <span th:text="${inquiry.registerTime}"></span> <br/>
+<span>작성자 : </span> <span th:text="${inquiry.customerId}"></span> <br/>
+<span>내용 : </span> <span th:text="${inquiry.content}"></span> <br/>
+<span>분류 : </span> <span th:text="${inquiry.category.category}"></span> <br/>
+<hr/>
+
+<div th:if="${inquiry.answer==null}">
+    <h1>답변하기</h1>
+    <form action="/cs/customer/answer" method="post">
+        <span>답글 : </span><textarea cols="20" rows="20" name="answer"></textarea>
+        <button type="submit">답변하기</button>
+        <button type="button"><a href="/cs/customer/list">취소</a></button>
+    </form>
+</div>
+<div th:unless="${inquiry.answer==null}">
+    <h1>답변</h1><br/>
+    <span>작성자 : </span> <span th:text="${answer.managerId}"></span>
+    <span>답글 : </span> <span th:text="${answer.content}"></span>
+    <span>답한 시간 : </span> <span th:text="${answer.answerTime}"></span>
+</div>
+
+</body>
+</html>

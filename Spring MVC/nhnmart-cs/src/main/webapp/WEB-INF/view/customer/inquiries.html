@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 목록</title>
+</head>
+<body>
+<h2>문의 목록</h2>
+<label>분류 : </label>
+<a th:href="@{list(category=${category})}" th:each="category : ${categories}" th:value="${category}" th:text="${category.category}"></a>
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>분류</th>
+        <th>작성일시</th>
+        <th>작성자</th>
+        <th>답변여부</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${session.sessionRole=='customer'}" th:each="inquiry : ${inquiries}">
+        <td ><a th:href="@{'/cs/customer/detail/'+${inquiry.id}}" th:text="${inquiry.title}"></a></td>
+        <td th:text="${inquiry.category}"></td>
+        <td th:text="${inquiry.registerTime}"></td>
+        <td th:text="${inquiry.customerId}"></td>
+        <td th:if="${inquiry.answer==null}"} th:text="답변없음"></td>
+        <td th:unless="${inquiry.answer==null}"} th:text="답변됨"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="register">문의하기</a>
+<a href="/">메인페이지</a>
+
+</body>
+</html>

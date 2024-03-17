@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NHN Mart 고객센터</title>
+</head>
+<body>
+<h1>NHN Mart 고객센터</h1>
+<a th:if="${session.sessionId ==null}" href="/login">login</a>
+<th:block th:unless="${session.sessionId==null}">
+    <a href="/logout">logout</a>
+    <a href="/cs/customer/list" th:if="${session.sessionRole=='customer'}">고객페이지</a>
+    <a href="/cs/manager/list" th:if="${session.sessionRole == 'manager'}">관리자페이지</a>
+</th:block>
+</body>
+</html>

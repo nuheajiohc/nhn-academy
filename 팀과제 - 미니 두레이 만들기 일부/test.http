@@ -1,0 +1,145 @@
+#GET http://localhost:7070/projects
+#Content-Type: application/json
+#Accept: application/json
+#
+#{
+#  "accountId" : "2"
+#}
+
+GET http://localhost:7070/project/1
+Content-Type: application/json
+Accept: application/json
+
+###
+GET http://localhost:7070/projects
+Content-Type: application/json
+Accept: application/json
+
+###
+GET http://localhost:7070/project/10
+Content-Type: application/json
+Accept: application/json
+
+###
+POST http://localhost:7070/projects
+Content-Type: application/json
+
+{
+  "projectId": 10,
+  "projectName": "examProject",
+  "projectStatus" : "활성"
+}
+
+###
+PUT http://localhost:7070/projects/10
+Content-Type: application/json
+
+{
+  "projectId" : 10,
+  "projectName" : "updatedProject",
+  "projectStatus": "활성"
+}
+
+###
+DELETE http://localhost:7070/projects/10
+
+
+###
+POST http://localhost:7070/project/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "projectName":"new project By User1"
+}
+
+
+###
+// task api
+GET http://localhost:7070/tasks
+Content-Type: application/json
+Accept: application/json
+
+###
+GET http://localhost:7070/task/1
+Content-Type: application/json
+Accept: application/json
+
+
+###
+POST http://localhost:7070/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+  "taskTitle": "exampleTask",
+  "taskContent" : "exampleTaskContent",
+  "registerDate" : "2024-01-26T12:00:00",
+  "projects": {
+    "projectId": 1,
+    "projectName": "프로젝트 1",
+    "projectStatus": "활성"
+  },
+  "mileStone": {
+    "milesStoneId": 1,
+    "projectProgress": "진행 중",
+    "projects": {
+      "projectId": 1,
+      "projectName": "프로젝트 1",
+      "projectStatus": "활성"
+    }
+  }
+}
+
+###
+PUT http://localhost:7070/task/7
+Content-Type: application/json
+Accept: application/json
+
+{
+  "taskId" : "7",
+  "taskTitle": "updatedTask",
+  "taskContent" : "exampleTaskContent",
+  "registerDate" : "2024-01-26T12:00:00",
+  "projects": {
+    "projectId": 1,
+    "projectName": "프로젝트 1",
+    "projectStatus": "활성"
+  },
+  "mileStone": {
+    "milesStoneId": 1,
+    "projectProgress": "진행 중",
+    "projects": {
+      "projectId": 1,
+      "projectName": "프로젝트 1",
+      "projectStatus": "활성"
+    }
+  }
+}
+
+###
+DELETE http://localhost:7070/task/9
+
+
+###
+GET http://localhost:7070/member/51
+
+
+###
+POST http://localhost:7070/task/51
+Content-Type: application/json
+Accept: application/json
+
+{
+  "taskTitle": "examTitle",
+  "taskContent" : "examContent"
+}
+
+###
+#POST http://localhost:7070/register/1
+#Content-Type: application/json
+#Accept: application/json
+#
+#{
+#  "accountId": ""
+#}

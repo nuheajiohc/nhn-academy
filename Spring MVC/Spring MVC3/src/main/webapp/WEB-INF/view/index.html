@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{managing-title}"></title>
+</head>
+<body>
+<h1 th:text="#{language}"></h1>
+<a href="?locale=ko" th:text="#{korean}"></a><br/>
+<a href="?locale=en" th:text="#{english}"></a><br/>
+<hr/>
+<h1 th:text="#{managing-title}"></h1>
+
+<a th:if="${session.sessionId ==null}" href="/login" th:text="#{login}"></a>
+<a th:unless="${session.sessionId ==null}" href="/logout" th:text="#{logout}"></a>
+<br/>
+<a href="/student/studentlist" th:text="#{student-list}"></a>
+</body>
+</html>

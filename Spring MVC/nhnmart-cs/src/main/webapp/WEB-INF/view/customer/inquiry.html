@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문의하기</title>
+</head>
+<body>
+
+<h1>문의하기</h1>
+
+<form action="/cs/customer/register" method="post">
+    <label for="category">분류:</label>
+    <select name="category" id="category">
+        <option th:each="category : ${categories}" th:value="${category}" th:text="${category.category}"></option>
+    </select>
+
+    <input type="hidden" name="customerId" th:value="${session.sessionId}"/>
+    <br>
+    <label for="title">제목:</label>
+    <input type="text" name="title" id="title" minlength="2" maxlength="200" required>
+    <br>
+    <label for="content">본문:</label>
+    <textarea name="content" id="content" rows="10" maxlength="40000" required></textarea>
+    <br>
+    <label>첨부파일:</label>
+    <input type="file" name="attachments" accept="image/*" multiple>
+    <br>
+    <input type="submit" value="확인">
+    <button type="button"><a href="/cs/customer/list">취소</a></button>
+</form>
+
+</body>
+</html>
